@@ -1,4 +1,6 @@
+.simvision/
 INCA_libs/
 waves.shm/
 *.log
 irun.key
+run
