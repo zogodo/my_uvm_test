@@ -4,9 +4,11 @@
 import uvm_pkg::*;
 `include "my_if.sv"
 `include "my_transaction.sv"
+`include "my_sequencer.sv"
 `include "my_driver.sv"
 `include "my_monitor.sv"
 `include "my_agent.sv"
+`include "my_sequence.sv"
 `include "my_env.sv"
 
 module top_tb;
