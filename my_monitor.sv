@@ -5,7 +5,7 @@ class my_monitor extends uvm_monitor;
    virtual my_if vif;
 
    uvm_analysis_port #(my_transaction)  ap;
-   
+
    `uvm_component_utils(my_monitor)
    function new(string name = "my_monitor", uvm_component parent = null);
       super.new(name, parent);
@@ -37,24 +37,24 @@ task my_monitor::collect_one_pkt(my_transaction tr);
    logic [7:0] data;
    logic valid = 0;
    int data_size;
-   
+
    while(1) begin
       @(posedge vif.clk);
       if(vif.valid) break;
    end
-   
+
    `uvm_info("my_monitor", "begin to collect one pkt", UVM_LOW);
    while(vif.valid) begin
       data_q.push_back(vif.data);
       @(posedge vif.clk);
    end
-   data_size  = data_q.size();   
+   data_size  = data_q.size();
    data_array = new[data_size];
    for ( int i = 0; i < data_size; i++ ) begin
-      data_array[i] = data_q[i]; 
+      data_array[i] = data_q[i];
    end
    tr.pload = new[data_size - 18]; //da sa, e_type, crc
-   data_size = tr.unpack_bytes(data_array) / 8; 
+   data_size = tr.unpack_bytes(data_array) / 8;
    `uvm_info("my_monitor", "end collect one pkt", UVM_LOW);
 endtask
 

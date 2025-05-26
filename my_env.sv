@@ -5,7 +5,7 @@ class my_env extends uvm_env;
 
    my_agent   i_agt;
    my_agent   o_agt;
-   
+
    function new(string name = "my_env", uvm_component parent);
       super.new(name, parent);
    endfunction
@@ -24,7 +24,7 @@ class my_env extends uvm_env;
    endfunction
 
    extern virtual function void connect_phase(uvm_phase phase);
-   
+
    `uvm_component_utils(my_env)
 endclass
 

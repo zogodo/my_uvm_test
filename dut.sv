@@ -1,5 +1,5 @@
 module dut(clk,
-           rst_n, 
+           rst_n,
            rxd,
            rx_dv,
            txd,

@@ -5,18 +5,18 @@ class my_agent extends uvm_agent ;
    my_sequencer  sqr;
    my_driver     drv;
    my_monitor    mon;
-   
+
    uvm_analysis_port #(my_transaction)  ap;
-   
+
    function new(string name, uvm_component parent);
       super.new(name, parent);
-   endfunction 
-   
+   endfunction
+
    extern virtual function void build_phase(uvm_phase phase);
    extern virtual function void connect_phase(uvm_phase phase);
 
    `uvm_component_utils(my_agent)
-endclass 
+endclass
 
 
 function void my_agent::build_phase(uvm_phase phase);
@@ -26,7 +26,7 @@ function void my_agent::build_phase(uvm_phase phase);
       drv = my_driver::type_id::create("drv", this);
    end
    mon = my_monitor::type_id::create("mon", this);
-endfunction 
+endfunction
 
 function void my_agent::connect_phase(uvm_phase phase);
    super.connect_phase(phase);

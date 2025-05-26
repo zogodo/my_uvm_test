@@ -34,14 +34,14 @@ endtask
 task my_driver::drive_one_pkt(my_transaction tr);
    byte unsigned     data_q[];
    int  data_size;
-   
-   data_size = tr.pack_bytes(data_q) / 8; 
+
+   data_size = tr.pack_bytes(data_q) / 8;
    `uvm_info("my_driver", "begin to drive one pkt", UVM_LOW);
    repeat(3) @(posedge vif.clk);
    for ( int i = 0; i < data_size; i++ ) begin
       @(posedge vif.clk);
       vif.valid <= 1'b1;
-      vif.data <= data_q[i]; 
+      vif.data <= data_q[i];
    end
 
    @(posedge vif.clk);
